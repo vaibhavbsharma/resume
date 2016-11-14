@@ -1,0 +1,222 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%
+% (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
+%
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed,array, tabularx}
+\usepackage{tocloft}
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{-8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+\textbf{\Large Vaibhav B Sharma} & Ph: 845-588-5188 \\
+1571C, 30 Middlevale Road & sharmav6@msu.edu \\
+East Lansing, MI 48823 & \\
+\end{tabular*}
+\\
+\vspace{8.0pt}
+\hrule
+\hrule
+\vspace{10.0pt}
+\large{
+\textbf{\textit{Objective:}}
+{\textbf{\textit{{Find useful solutions for real-world security problems }}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5pt}
+\begin{itemize}
+
+\item 
+\ressubheading{Michigan State University, East Lansing, USA}{}{Master of Science, Computer Science \& Engineering, GPA: 3.9/4}{2013 - 2015 (Expected)}
+\newline\par Advisor: Dr. Richard Enbody
+
+\item 
+\ressubheading{Mumbai University, India}{}{Bachelor of Engineering,  Computer Engineering: Aggregate: 68\%}{2003 - 2007}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Relevant Courses}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-8pt}
+%\newline\par 
+\begin{itemize}
+\item Computer \& Network Security
+\item Data Mining
+\item Advanced Computer Architecture
+\item Introduction to Computer Security
+\item Design \& Theory of Algorithms
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+
+\item 
+\textbf{Research, Department of Computer Science \& Engineering, Michigan State University}: \textit{May 2014 - present}
+\begin{itemize}
+\resitem{ Identified the Android app authentication problem and proposed a protocol to solve it}
+\resitem{ Identified the feature selection problem for app-centric implicit authentication on mobile devices}
+\end{itemize}
+
+\item
+\textbf{OpenSource Contribution - \textit{https://github.com/vaibhavbsharma}}: \textit{May 2014 - present}
+\begin{itemize}
+\resitem{Demonstrated CVE-2002-0640 using FuzzBALL, a symbolic execution engine}
+\end{itemize}
+
+\item 
+\textbf{Teaching Assistant, Department of Computer Science \& Engineering, Michigan State University}: \textit{Aug 2013 - May 2014, Aug 2014 - present}
+\begin{itemize}
+\resitem{ \textit{CSE101 - Computing Concepts/Competencies } - instructed  90 students in class}
+\resitem{ \textit{CSE231 - Introduction to Programming using Python } - conducted lab exercises, completed grading tasks }
+\end{itemize}
+
+\item
+\textbf{ Lead Engineer, Browser Development, Samsung Research India - Bangalore }: \textit{June 2012 to June 2013}
+\begin{itemize}
+	\resitem{Developed and maintained WebGL, TiledBackingStore web page rendering modules in the WebKit2EFL browser engine used in the Tizen operating system}
+\end{itemize}
+
+\clearpage
+
+\item
+\textbf{ Senior Software Analyst, OS Development, Bally Technologies }: \textit{March 2010 to June 2012}
+\begin{itemize}
+	\resitem{Integrated a WebKitGtk+ browser engine with the OS }
+\end{itemize}
+
+\item
+\textbf{ Senior Subject Matter Expert, Order Management, Amdocs DVCI }: \textit{Aug 2007 to March 2010}
+\begin{itemize}
+	\resitem{Maintained a Tuxedo-based backend of a web-based order management system used by large telecommunication companies }
+\end{itemize}
+
+\end{itemize}
+
+%\vspace{2.3cm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Academic Projects}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+
+
+
+\item
+Using Genetic Algorithm-based Feature Selection in Ensemble Classifier for Network Intrusion Detection: Course Project, Evolutionary Computation, Fall 2014
+
+\item 
+Fraudulent Resume Detection: Course Project, Data Mining, Fall 2014
+
+\item
+Android Application Security: Course Project, Computer \& Network Security, Spring 2014
+
+\item 
+NFC-Powered Wireless Multi-hop Sensor Network: Course Project,  Advanced Computer Networks and Comm., Fall 2013
+
+\item
+Optimal Placement of Annotation Labels in Geometric Objects: B.E Thesis, 2007
+
+\end{itemize}
+
+%$\vspace{10.0pt}$
+
+\vspace{4.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+
+\item 
+\textit{Programming Languages}: C, C++, OCaml, Python, smali, Java, PL/SQL
+\item 
+\textit{Web Technologies}: Node.js, MongoDB, WebComponents
+\item
+\textit{Revision Control Systems}: Git, SVN, CVS
+\item
+\textit{Build Systems}: make, cmake, OpenBuildService
+\item
+\textit{Operating Systems}: Various Linux flavors, TinyOS
+\item
+\textit{Applications}: MATLAB, LaTeX
+\end{itemize}
+
+\resheading{Awards}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+
+\item 
+Richard Reid Fellowship (College of Engineering, Michigan State University), Summer 2014
+
+
+\end{itemize}
+
+     
+\vphantom{E}
+
+%\end{center}\vspace*{-16pt}
+
+
+\end{document}
