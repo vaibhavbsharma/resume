@@ -1,11 +1,3 @@
-% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
-% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
-% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
-%
-% (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
-%
-%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
-
 \documentclass[letterpaper,10pt]{article}
 \newlength{\outerbordwidth}
 \pagestyle{empty}
@@ -14,17 +6,13 @@
 \usepackage[svgnames]{xcolor}
 \usepackage{framed,array, tabularx}
 \usepackage{tocloft}
+\usepackage{hyperref}
 
 %-----------------------------------------------------------
-%Edit these values as you see fit
-
-\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
-\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
-\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
-
-
-%-----------------------------------------------------------
-%Margin setup
+% Setup Margins and Colors
+\setlength{\outerbordwidth}{3pt}  
+\definecolor{shadecolor}{gray}{0.75}  
+\definecolor{shadecolorB}{gray}{0.93}  
 
 \setlength{\evensidemargin}{-0.25in}
 \setlength{\headheight}{0in}
@@ -39,10 +27,12 @@
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
 
-
 %-----------------------------------------------------------
-%Custom commands
+% Custom Commands
+
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+
+% Heading Box
 \newcommand{\resheading}[1]{\vspace{-8pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
@@ -50,287 +40,455 @@
     \end{shaded}
   }\vspace{-5pt}
 }
+
+% Subheading Table - FIXED WIDTH
 \newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-    \textbf{#1} & #2 \\
+\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{#2} \\
     \textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
+
 %-----------------------------------------------------------
 
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\textbf{\Large Vaibhav Sharma} & Ph: 845--588--5188 \\
-18824 Pendergast Ave & vaibhav.b.sharma@gmail.com \\
-Cupertino, CA 95014 & https://sites.google.com/view/vaibhavbsharma/home\\
+% Header
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{\Large Vaibhav Sharma, PhD} & Ph: 845--588--5188 \\
+Cupertino, CA 95014 & vaibhav.b.sharma@gmail.com \\
+\href{https://sites.google.com/view/vaibhavbsharma/home}{Portfolio/Website} & \href{https://scholar.google.com/citations?user=sT2KKJYAAAAJ}{Google Scholar} \textbar{} \href{https://www.linkedin.com/in/vaibhav-sharma-7a919216/}{LinkedIn} \\
 \end{tabular*}
-\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Professional Summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2pt}
+Applied Scientist with 10+ years of experience in \textbf{Automated Reasoning, Symbolic Execution, and Software Security}. Proven track record of applying formal methods to secure large-scale cloud infrastructure (AWS), IoT ecosystems, and payment services. Published researcher in top-tier venues including FSE, CAV, and TACAS.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Technical Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+    \item \textbf{Core Domains:} Automated Reasoning, Formal Verification, Symbolic Execution, Binary Analysis, Program Synthesis, IoT Security, Static Analysis.
+    \item \textbf{Languages:} Java, C, C++, Python, OCaml, Rust, LaTeX.
+    \item \textbf{Tools \& Frameworks:} FuzzBALL, KLEE, Java Pathfinder (JPF), WebKit, Git.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-8pt}
+\begin{itemize}
+  \item \textbf{Applied Scientist III, Amazon.com Services LLC} \hfill Feb 2022 -- Present
+    \begin{itemize}
+        \resitem{Lead the application of \textbf{Automated Reasoning} to secure high-stakes Payment and IAM (Identity and Access Management) services.}
+        \resitem{Design and deploy formal verification tools to ensure the correctness of complex security policies, protecting critical cloud infrastructure and user data.}
+    \end{itemize}
+
+  \item \textbf{Applied Scientist II, Amazon Web Services (AWS)} \hfill Feb 2020 -- Feb 2022
+    \begin{itemize}
+        \resitem{Developed automated reasoning solutions to verify correctness and security properties for \textbf{AWS IoT} customers.}
+        \resitem{Bridged the gap between academic formal methods and industrial-scale software systems.}
+    \end{itemize}
+
+\item \textbf{Research Assistant, University of Minnesota} \hfill Sept 2015 -- May 2019 
+    \begin{itemize}
+        \resitem{Extended \textbf{FuzzBALL} (binary symbolic execution) for automated synthesis of binary wrapper code.}
+        \resitem{Implemented equivalence checking between functions to identify substitutable binary code.}
+    \end{itemize}
+
+\item \textbf{Samsung Research India}, Browser Development \hfill June 2012 -- June 2013
+    \begin{itemize}
+        \resitem{Engineered web page rendering modules in \textbf{WebKit2EFL} for the Tizen OS.}
+    \end{itemize}
+
+\item \textbf{Bally Technologies}, OS Development \hfill March 2010 -- June 2012
+    \begin{itemize}
+        \resitem{Integrated \textbf{WebKitGtk+} browser engine into slot machine operating systems.}
+    \end{itemize}
+
+\item \textbf{Amdocs Development Center India} \hfill Aug 2007 -- March 2010
+    \begin{itemize}
+        \resitem{Maintained \textbf{Tuxedo-based} backend systems for global telecommunication order management.}
+    \end{itemize}
+\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheading{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-8pt}
 \begin{itemize}
-\item 
-\ressubheading{University of Minnesota -- Twin Cities,  Minneapolis,
-USA}{}{PhD,  Computer Science and Engineering,  GPA: 3.93/4}{2015 -- 2020}
-\newline\par Advisor: Professor Stephen McCamant
-
-
-\item 
-\ressubheading{Michigan State University,  East Lansing,
-USA}{}{M.S.,  Computer Science and Engineering,  GPA: 3.95/4}{2013 -- 2015}
-\newline \par Thesis: Continuous User Authentication and Identification Using User Interface Interactions
-\newline Advisor: Professor Richard Enbody
-
-\item 
-\ressubheading{Mumbai University,  India}{}{B.E.,  Computer Engineering, Aggregate: 68\%}{2003 -- 2007}
+\item \ressubheading{University of Minnesota}{2015 -- 2020}{PhD, Computer Science and Engineering (GPA: 3.93/4)}{Minneapolis, USA}
+\item \ressubheading{Michigan State University}{2013 -- 2015}{M.S., Computer Science and Engineering (GPA: 3.95/4)}{East Lansing, USA}
+\item \ressubheading{Mumbai University}{2003 -- 2007}{B.E., Computer Engineering}{Mumbai, India}
 \end{itemize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Work Experience}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Selected Publications \& Patents}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-8pt}
 \begin{itemize}
-  \item
-    \textbf{Applied Scientist III, Amazon.com Services LLC}, Nov 2024 -- present 
-
-    I work on applying automated reasoning techniques to prove correctness of AWS Identity services.
-  
-  \item
-    \textbf{Applied Scientist III, Amazon.com Services LLC}, Feb 2022 -- Nov 2024
-
-    I worked on applying automated reasoning techniques to assure
-    payments applications used in Amazon.
-
-  \item
-    \textbf{Applied Scientist II, Amazon Web Services, Inc.}, Feb 2020 -- Feb 2022
-
-    I worked on applying automated reasoning techniques to solve
-    problems faced by customers of AWS IoT Events. 
-\item 
-\textbf{Research Assistant, University of Minnesota -- Twin Cities}, Sept 2015 -- May 2019 
-
-Extended a binary-level symbolic execution-based tool~(FuzzBALL) for automatic synthesis of binary wrapper code which creates equivalence between two functions 
-% \begin{itemize}
-% \item Extended FuzzBALL~(https://github.com/bitblaze-fuzzball/fuzzball) for performing equivalence checking between two functions
-% \item Evaluated different classes of wrappers on real-world functions
-% \end{itemize}
-%
-\item
-\textbf{Teaching Assistant, Michigan State University}, Aug 2013 -- Aug 2015
-
-Delivered in-class presentations, conducted lab sessions, for 3 undergraduate-level courses%, including ``Introduction to Computer Security''
-
-\item
-\textbf{Samsung Research India - Bangalore}, Browser Development, June 2012 -- June 2013
-
-Developed web page rendering modules in WebKit2EFL browser engine used in the Tizen operating system
-
-\item
-\textbf{Bally Technologies}, Operating System Development, March 2010 -- June 2012
-
-Integrated a WebKitGtk+ browser engine with the slot machine operating system
-
-
-\item
-\textbf{Amdocs Development Center India}, Order Management, Aug 2007 -- March 2010
-
-Maintained a Tuxedo-based backend of an order management system used by telecommunication companies
-
-
+    \item \textbf{Patent:} \textit{"IoT event detector correctness verification"}, US12093160B1, Granted Sep 2024.
+    \item "State Merging with Quantifiers in Symbolic Execution", \textit{FSE} 2023.
+    \item "Automated Analysis of IoT Event Monitoring Systems", \textit{CAV} 2023.
+    \item "Java Ranger: Statically Summarizing Regions For Efficient Symbolic Execution", \textit{FSE} 2020.
+    \item "Finding Substitutable Binary Code by Synthesizing Adaptors," \textit{IEEE TSE} 2019.
 \end{itemize}
 
-%
-\resheading{Publications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Professional Service}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{-8pt}
 \begin{itemize}
-	\item
-		"State Merging with Quantifiers in Symbolic Execution", David Trabish, Noam Rinetzky, Sharon Shoham, {\bf Vaibhav Sharma}, \textit{Foundations of Software Engineering (ESEC/FSE)} 2023 and at the \textit{KLEE 2024} workshop
-	\item
-		"Automated Analysis of IoT Event Monitoring Systems", Andrew Apicelli, Sam Bayless, Ankush Das, Andrew Gacek, Dhiva Jaganathan, Saswat Padhi, {\bf Vaibhav Sharma}, Michael W. Whalen, Raveesh Yadav, \textit{Computer Aided Verification (CAV)} 2023  (PDF)
-	\item
-  "Java Ranger: Supporting String and Array Operations in Java Ranger (Competition Contribution)", Soha Hussein, Qiuchen Yan, Stephen McCamant, {\bf Vaibhav Sharma}, Michael W. Whalen, \textit{Tools and Algorithms for Construction and Analysis of Systems (TACAS)} 2023
-\item
-  Soha Hussein, Sanjai Rayadurgam, Stephen McCamant, {\bf Vaibhav Sharma}, Mats P. E. Heimdahl, ``Counterexample-Guided Inductive Repair of Reactive Contracts," \textit{FormaliSE}, 2022
-  \item
-{\bf Vaibhav Sharma}, Soha Hussein (joint first author), Michael W. Whalen, Stephen McCamant, Willem Visser, ``Java Ranger: Statically Summarizing Regions For Efficient Symbolic Execution Of Java," \textit{Foundations of Software Engineering (FSE)}, 2020
-\item
-  {\bf Vaibhav Sharma}, ``Adapter Synthesis: Synthesizing And Repairing Programs Using Scalable Symbolic Execution'', Doctoral Thesis, 2020, University of Minnesota
-\item
-  {\bf Vaibhav Sharma}, Navid Emamdoost, Seonmo Kim, Stephen McCamant, ``It Doesn't Have to Be So Hard: Efficient Symbolic Reasoning for CRCs," \textit{Binary Analysis Research (BAR) Workshop}, 2019
-\item
-  {\bf Vaibhav Sharma}, Soha Hussein, Michael W. Whalen, Stephen McCamant, Willem Visser, ``Java Ranger at SV-COMP 2020 (Competition Contribution)," \textit{Tools and Algorithms for Construction and Analysis of Systems (TACAS)}, 2020
-\item
-  {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Substitutable Binary Code by Synthesizing Adaptors," \textit{IEEE Transactions on Software Engineering}, 2019
-\item
-  Taejoon Byun, {\bf Vaibhav Sharma}, Abhishek Vijayakumar, Sanjai Rayadurgam, Darren Cofer, ``Input Prioritization for Testing Neural Networks," \textit{1st IEEE International Conference on Artificial Intelligence Testing}, 2019
-\item
-  Navid Emamdoost, {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, ``Binary Mutation Analysis of Tests Using Reassembleable Disassembly," \textit{Binary Analysis Research (BAR) Workshop}, 2019
-\item
-  {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, Sanjai Rayadurgam, Mats Heimdahl, ``Contract Discovery From Black-box Components," \textit{Workshop on Automated Specification Inference (WASPI)}, 2018
-\item
-  {\bf Vaibhav Sharma}, Stephen McCamant, ``Synthesizing Adaptors For Binary Code Using Symbolic Execution," \textit{Second International Workshop on Usages of Symbolic Execution (USE)}, 2018, {\bf Best Presentation Award}
-\item
-  {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Substitutable Binary Code for Reverse Engineering by Synthesizing Adaptors," \textit{11th IEEE Conference on Software Testing, Verification, and Validation (ICST)}, 2018
-\item
-  {\bf Vaibhav Sharma} and Richard Enbody, ``User Authentication And Identification From User Interface Interactions on Touch-Enabled Devices," \textit{10th ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2017, {\bf Best Paper Award Runner-up}
-\item
-  {\bf Vaibhav Sharma}, Michael W. Whalen, Stephen McCamant, Willem Visser, ``Veritesting Challenges in Symbolic Execution of Java," \textit{Java Pathfinder Workshop}, 2017
-\item
-  {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, Sanjai Rayadurgam, Mats Heimdahl , ``Discovering Instructions for Robust Binary-level Coverage Criteria," \textit{Proceedings of 2017 ACM International Workshop on Testing Embedded and Cyber-Physical Systems (TECPS)}, 2017
-\item
-  Taejoon Byun, {\bf Vaibhav Sharma}, Sanjai Rayadurgam, Stephen McCamant, Mats P.E. Heimdahl, ``Towards Rigorous Object-Code Coverage Criteria," \textit{The 28th International Symposium on Software Reliability Engineering (ISSRE)}, 2017
-\item
-  {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{arXiv:1707.01536}, 2017
-\item
-  {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{Minnesota Supercomputing Institute Research Exhibition}, 2017 (poster) 
-\item
-  {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{Midwest PL Summit}, 2016 (poster) 
-\item
-  {\bf Vaibhav Sharma}, ``Continuous User Authentication and Identification Using User Interface Interaction On Mobile Devices'', Master's Thesis, 2015, Michigan State University
-\item 
-  {\bf Vaibhav Sharma} and Richard Enbody, ``Context-Aware Implicit Authentication For Mobile Devices" \textit{MSU Engineering Graduate Research Symposium}, 2015 (poster) 
+  \item \textbf{Program Committee:} ICST (2026, 2024), RE (2024, 2023), ESEC/FSE (2022, 2021), ASE (2021, 2020), JPF (2022), ICTAC (2022).
+  \item \textbf{Reviewer/Jury:} IEEE Transactions on Software Engineering (2025), SV-COMP Jury (2020), ISSTA/ASE Artifact Evaluation (2020).
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Service}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-8pt}
-\begin{itemize}
-  %\item Contributed veritesting feature, bug fixes, system call support to FuzzBALL
-  %\item Added veritesting feature to Symbolic Pathfinder, contributed to bug fixes
-  \item Served on the Program Committee of the Industrial Innovation Track of the 32nd IEEE International Requirements Engineering (RE) 2024
-  \item Served on the Program Committee of the technical track of International Conference of Software Testing (ICST) 2024
-  \item Sub-reviewed for Michael W. Whalen on the technical track of Formal Methods in Computer-Aided Design (FMCAD) 2023
-  \item Served on the Program Committee of the Industrial Innovation track at the 31st IEEE International Requirements Engineering (RE) 2023
-  \item Served on the Program Committee of the Java Pathfinder (JPF) Workshop 2022, co-located with ASE 2022
-  \item Served on the Program Committee of International Colloquium on Theoretical Aspects of Computing (ICTAC) 2022
-  \item Served on the Program Committee of the Industry track at ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) 2022
-  \item Sub-reviewed for Michael W. Whalen on the technical track of International Conference on Software Engineering (ICSE) 2022
-  \item Served on the Program Committee of the New Ideas and Emerging Results (NIER) track at Automated Software Engineering (ASE) 2021
-  \item Served on the Program Committee of the NIER track at the IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) 2021
-  \item Served on the Program Committee of the Industry track at ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) 2021
-  \item Reviewed for the Transactions of Software Engineering (TSE) journal
-  \item Served on the Program Committee of the New Ideas and Emerging Results (NIER) track at Automated Software Engineering (ASE) 2020
-  \item Served as Artifact Evaluation Committee member at the International Symposium of Software Testing and Analysis (ISSTA) 2020
-  \item Served as Artifact Evaluation Committee member at Automated Software Engineering (ASE) 2020
-  \item Served on the Program Committee for Binary Analysis Research Workshop 2020 (co-located with NDSS 2020)
-  \item Served as Jury Member and Program Committee member of the International Competition of Software Verification (SV-COMP) 2020
-  \item Reviewer for Journal of Software Testing, Verification and Reliability (STVR) (May 2019-Dec 2019)
-  \item Contributed optimization features, bug fixes, system call support to FuzzBALL
-  \item Supported development of an Android app for navigating the Michigan State University campus
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Patents}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-8pt}
-\begin{itemize}
-	\item IoT event detector correctness verification, US12093160B1, {\bf Vaibhav Bhushan Sharma}, Andrew Jude Gacek, Michael William Whalen, Saswat Padhi, Andrew Apicelli, Raveesh Yadav, Samuel Bayless, Roman Pruzhanskiy, Rajat Gupta, Harshil Rajeshkumar Shah, Fernando Dias Pauer, Ankush Das, Dhivashini Jaganathan, granted Sep 17, 2024
-\end{itemize}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Awards}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-8pt}
-\begin{itemize}
-  \item Doctoral Dissertation Fellowship, University of Minnesota, 2019
-  \item Best Paper Runner-up Award, WiSec 2017
-  \item NSF Conference Travel Grant, WiSec 2017
-  \item ACM Conference Travel Grant, WiSec 2017
-  \item Richard Reid Fellowship (College of Engineering, Michigan State University), Summer 2014
-\end{itemize}
-
-\vphantom{E}
-
-%\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \resheading{Industrial Projects}
-% \vspace{-8pt}
-% At IBM India, owned the scan optimization tool for ASICs: 
-% 
-% \begin{itemize}
-% \item 
-% Developed a scan reordering tool for ASICS by implementing a combination of
-% K--opt heuristic and nearest neighbor algorithm to solve the Traveling
-% Salesman Problem
-% \item  
-% Added enhancements to the optimization tool including: inter scan chain
-% reordering, routing--aware and clock topology--aware reordering
-% \item 
-% Responsible for maintenance and integration of the tool 
-% into the IBM backend physical design flow
-% \end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Academic Projects}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-8pt}
-\begin{itemize}
-
-\item
-``Increasing Symbolic PathFinder Performance with Bounded Static Symbolic Execution," Google Summer of Code, Summer 2017, UMN
-
-\item 
-``Link Prefetching: A Defense Against Website Fingerprinting on Tor," Course project, Introduction to Computer Security, Fall 2015, UMN
-
-\item
-``Continuous User Authentication and Identification Using User Interface Interaction On Mobile Devices'', Master's Thesis, Summer 2015, MSU
-% \begin{itemize}
-% \item
-% Presented a new modality for authenticating users based on interactions with elements of the Android User Interface
-% \item
-% Evaluated the modality with data collected from real users and with different classification algorithms
-% \end{itemize}
-
-\item
-``Fraudulent Resume Detection," Course project, Data Mining, Fall 2014, MSU
-
-\item
-``Using GA-based Feature Selection In Ensemble Classifier For Network Intrusion Detection," Course Project, Evolutionary Computation, Fall 2014, MSU
-
-\item
-``NFC-Powered Wireless Multi-hop Sensor Network,'' Course Project, Advanced Computer Networks and Communication, Fall 2013, MSU
-
-\item
-``Optimal Placement of Annotation Labels in Geometric Objects,'' B.E. Thesis, 2007
-\end{itemize}
-
-%$\vspace{10.0pt}$
-
-\vspace{4.0pt}
-
-\resheading{Graduate Courses}
-\vspace{-8pt}
-\begin{itemize}
-  \item Programming Languages
-  \item Introduction to Compilers
-  \item Security/Privacy in Computing
-  \item Introduction to Computer Security
-  \item Data Mining
-  \item Pattern Recognition
-\end{itemize}
-
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Skills}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-8pt}
-\begin{itemize}
-
-\item 
-\textit{Programming Languages}: C, C++, Java, OCaml
-\item 
-\textit{Revision Control Systems}: Git
-\item
-\textit{Operating Systems}: various Linux flavors
-\end{itemize}
-%\end{center}\vspace*{-16pt}
-
 
 \end{document}
+
+
+
+
+
+%%%%%%% Old resume below %%%%%%%%%%
+
+
+%        % (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+%        % (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+%        % (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%        %
+%        % (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
+%        %
+%        %This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+%        
+%        \documentclass[letterpaper,10pt]{article}
+%        \newlength{\outerbordwidth}
+%        \pagestyle{empty}
+%        \raggedbottom
+%        \raggedright
+%        \usepackage[svgnames]{xcolor}
+%        \usepackage{framed,array, tabularx}
+%        \usepackage{tocloft}
+%        
+%        %-----------------------------------------------------------
+%        %Edit these values as you see fit
+%        
+%        \setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+%        \definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+%        \definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+%        
+%        
+%        %-----------------------------------------------------------
+%        %Margin setup
+%        
+%        \setlength{\evensidemargin}{-0.25in}
+%        \setlength{\headheight}{0in}
+%        \setlength{\headsep}{0in}
+%        \setlength{\oddsidemargin}{-0.25in}
+%        \setlength{\paperheight}{11in}
+%        \setlength{\paperwidth}{8.5in}
+%        \setlength{\tabcolsep}{0in}
+%        \setlength{\textheight}{9.5in}
+%        \setlength{\textwidth}{7in}
+%        \setlength{\topmargin}{-0.3in}
+%        \setlength{\topskip}{0in}
+%        \setlength{\voffset}{0.1in}
+%        
+%        
+%        %-----------------------------------------------------------
+%        %Custom commands
+%        \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+%        \newcommand{\resheading}[1]{\vspace{-8pt}
+%          \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+%            \begin{shaded}
+%        \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+%            \end{shaded}
+%          }\vspace{-5pt}
+%        }
+%        \newcommand{\ressubheading}[4]{
+%        \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+%            \textbf{#1} & #2 \\
+%            \textit{#3} & \textit{#4} \\
+%        \end{tabular*}\vspace{-6pt}}
+%        %-----------------------------------------------------------
+%        
+%        \begin{document}
+%        
+%        \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+%        \textbf{\Large Vaibhav Sharma} & Ph: 845--588--5188 \\
+%        10727 Par 3 Drive & vaibhav.b.sharma@gmail.com \\
+%        Cupertino, CA 95014 & https://sites.google.com/view/vaibhavbsharma/home\\
+%        \end{tabular*}
+%        \\
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \resheading{Education}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%        \item
+%        \ressubheading{University of Minnesota -- Twin Cities,  Minneapolis,
+%        USA}{}{PhD,  Computer Science and Engineering,  GPA: 3.93/4}{2015 -- 2020}
+%        \newline\par Advisor: Professor Stephen McCamant
+%        
+%        
+%        \item
+%        \ressubheading{Michigan State University,  East Lansing,
+%        USA}{}{M.S.,  Computer Science and Engineering,  GPA: 3.95/4}{2013 -- 2015}
+%        \newline \par Thesis: Continuous User Authentication and Identification Using User Interface Interactions
+%        \newline Advisor: Professor Richard Enbody
+%        
+%        \item
+%        \ressubheading{Mumbai University,  India}{}{B.E.,  Computer Engineering, Aggregate: 68\%}{2003 -- 2007}
+%        \end{itemize}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \resheading{Work Experience}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%        
+%          \item
+%            \textbf{Applied Scientist III, Amazon.com Services LLC}, Feb 2022 --
+%            present
+%        
+%            I applied Automated Reasoning to secure
+%            payments and Identity and Access Management (IAM) services.
+%        
+%          \item
+%            \textbf{Applied Scientist II, Amazon Web Services, Inc.}, Feb 2020 -- Feb 2022
+%        
+%            I applied automated reasoning to solve
+%            problems faced by AWS IoT (Internet-of-Things) customers.
+%        \item
+%        \textbf{Research Assistant, University of Minnesota -- Twin Cities}, Sept 2015 -- May 2019
+%        
+%        Extended a binary-level symbolic execution-based tool~(FuzzBALL) for automatic synthesis of binary wrapper code which creates equivalence between two functions
+%        % \begin{itemize}
+%        % \item Extended FuzzBALL~(https://github.com/bitblaze-fuzzball/fuzzball) for performing equivalence checking between two functions
+%        % \item Evaluated different classes of wrappers on real-world functions
+%        % \end{itemize}
+%        %
+%        \item
+%        \textbf{Teaching Assistant, Michigan State University}, Aug 2013 -- Aug 2015
+%        
+%        Delivered in-class presentations, conducted lab sessions, for 3 undergraduate-level courses%, including ``Introduction to Computer Security''
+%        
+%        \item
+%        \textbf{Samsung Research India - Bangalore}, Browser Development, June 2012 -- June 2013
+%        
+%        Developed web page rendering modules in WebKit2EFL browser engine used in the Tizen operating system
+%        
+%        \item
+%        \textbf{Bally Technologies}, Operating System Development, March 2010 -- June 2012
+%        
+%        Integrated a WebKitGtk+ browser engine with the slot machine operating system
+%        
+%        
+%        \item
+%        \textbf{Amdocs Development Center India}, Order Management, Aug 2007 -- March 2010
+%        
+%        Maintained a Tuxedo-based backend of an order management system used by telecommunication companies
+%        
+%        
+%        \end{itemize}
+%        
+%        %
+%        \resheading{Publications}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%        	\item
+%        		"State Merging with Quantifiers in Symbolic Execution", David Trabish, Noam Rinetzky, Sharon Shoham, {\bf Vaibhav Sharma}, \textit{Foundations of Software Engineering (ESEC/FSE)} 2023 and at the \textit{KLEE 2024} workshop
+%        	\item
+%        		"Automated Analysis of IoT Event Monitoring Systems", Andrew Apicelli, Sam Bayless, Ankush Das, Andrew Gacek, Dhiva Jaganathan, Saswat Padhi, {\bf Vaibhav Sharma}, Michael W. Whalen, Raveesh Yadav, \textit{Computer Aided Verification (CAV)} 2023  (PDF)
+%        	\item
+%          "Java Ranger: Supporting String and Array Operations in Java Ranger (Competition Contribution)", Soha Hussein, Qiuchen Yan, Stephen McCamant, {\bf Vaibhav Sharma}, Michael W. Whalen, \textit{Tools and Algorithms for Construction and Analysis of Systems (TACAS)} 2023
+%        \item
+%          Soha Hussein, Sanjai Rayadurgam, Stephen McCamant, {\bf Vaibhav Sharma}, Mats P. E. Heimdahl, ``Counterexample-Guided Inductive Repair of Reactive Contracts," \textit{FormaliSE}, 2022
+%          \item
+%        {\bf Vaibhav Sharma}, Soha Hussein (joint first author), Michael W. Whalen, Stephen McCamant, Willem Visser, ``Java Ranger: Statically Summarizing Regions For Efficient Symbolic Execution Of Java," \textit{Foundations of Software Engineering (FSE)}, 2020
+%        \item
+%          {\bf Vaibhav Sharma}, ``Adapter Synthesis: Synthesizing And Repairing Programs Using Scalable Symbolic Execution'', Doctoral Thesis, 2020, University of Minnesota
+%        \item
+%          {\bf Vaibhav Sharma}, Navid Emamdoost, Seonmo Kim, Stephen McCamant, ``It Doesn't Have to Be So Hard: Efficient Symbolic Reasoning for CRCs," \textit{Binary Analysis Research (BAR) Workshop}, 2019
+%        \item
+%          {\bf Vaibhav Sharma}, Soha Hussein, Michael W. Whalen, Stephen McCamant, Willem Visser, ``Java Ranger at SV-COMP 2020 (Competition Contribution)," \textit{Tools and Algorithms for Construction and Analysis of Systems (TACAS)}, 2020
+%        \item
+%          {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Substitutable Binary Code by Synthesizing Adaptors," \textit{IEEE Transactions on Software Engineering}, 2019
+%        \item
+%          Taejoon Byun, {\bf Vaibhav Sharma}, Abhishek Vijayakumar, Sanjai Rayadurgam, Darren Cofer, ``Input Prioritization for Testing Neural Networks," \textit{1st IEEE International Conference on Artificial Intelligence Testing}, 2019
+%        \item
+%          Navid Emamdoost, {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, ``Binary Mutation Analysis of Tests Using Reassembleable Disassembly," \textit{Binary Analysis Research (BAR) Workshop}, 2019
+%        \item
+%          {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, Sanjai Rayadurgam, Mats Heimdahl, ``Contract Discovery From Black-box Components," \textit{Workshop on Automated Specification Inference (WASPI)}, 2018
+%        \item
+%          {\bf Vaibhav Sharma}, Stephen McCamant, ``Synthesizing Adaptors For Binary Code Using Symbolic Execution," \textit{Second International Workshop on Usages of Symbolic Execution (USE)}, 2018, {\bf Best Presentation Award}
+%        \item
+%          {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Substitutable Binary Code for Reverse Engineering by Synthesizing Adaptors," \textit{11th IEEE Conference on Software Testing, Verification, and Validation (ICST)}, 2018
+%        \item
+%          {\bf Vaibhav Sharma} and Richard Enbody, ``User Authentication And Identification From User Interface Interactions on Touch-Enabled Devices," \textit{10th ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2017, {\bf Best Paper Award Runner-up}
+%        \item
+%          {\bf Vaibhav Sharma}, Michael W. Whalen, Stephen McCamant, Willem Visser, ``Veritesting Challenges in Symbolic Execution of Java," \textit{Java Pathfinder Workshop}, 2017
+%        \item
+%          {\bf Vaibhav Sharma}, Taejoon Byun, Stephen McCamant, Sanjai Rayadurgam, Mats Heimdahl , ``Discovering Instructions for Robust Binary-level Coverage Criteria," \textit{Proceedings of 2017 ACM International Workshop on Testing Embedded and Cyber-Physical Systems (TECPS)}, 2017
+%        \item
+%          Taejoon Byun, {\bf Vaibhav Sharma}, Sanjai Rayadurgam, Stephen McCamant, Mats P.E. Heimdahl, ``Towards Rigorous Object-Code Coverage Criteria," \textit{The 28th International Symposium on Software Reliability Engineering (ISSRE)}, 2017
+%        \item
+%          {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{arXiv:1707.01536}, 2017
+%        \item
+%          {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{Minnesota Supercomputing Institute Research Exhibition}, 2017 (poster)
+%        \item
+%          {\bf Vaibhav Sharma}, Kesha Hietala, Stephen McCamant, ``Finding Semantically-Equivalent Binary Code by Synthesizing Adaptors," \textit{Midwest PL Summit}, 2016 (poster)
+%        \item
+%          {\bf Vaibhav Sharma}, ``Continuous User Authentication and Identification Using User Interface Interaction On Mobile Devices'', Master's Thesis, 2015, Michigan State University
+%        \item
+%          {\bf Vaibhav Sharma} and Richard Enbody, ``Context-Aware Implicit Authentication For Mobile Devices" \textit{MSU Engineering Graduate Research Symposium}, 2015 (poster)
+%        \end{itemize}
+%        
+%        
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \resheading{Patents}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%        	\item IoT event detector correctness verification, US12093160B1, {\bf Vaibhav Bhushan Sharma}, Andrew Jude Gacek, Michael William Whalen, Saswat Padhi, Andrew Apicelli, Raveesh Yadav, Samuel Bayless, Roman Pruzhanskiy, Rajat Gupta, Harshil Rajeshkumar Shah, Fernando Dias Pauer, Ankush Das, Dhivashini Jaganathan, granted Sep 17, 2024
+%        \end{itemize}
+%        
+%        
+%        
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \resheading{Service}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%          %\item Contributed veritesting feature, bug fixes, system call support to FuzzBALL
+%          %\item Added veritesting feature to Symbolic Pathfinder, contributed to bug fixes
+%          \item Invited to serve on the Program Committee of the research track of International Conference of Software Testing (ICST) 2026
+%          \item Reviewed a submission to the IEEE Transactions of Software Engineering journal in Sep 2025
+%          \item Served on the Program Committee of the Industrial Innovation Track of the 32nd IEEE International Requirements Engineering (RE) 2024
+%          \item Served on the Program Committee of the technical track of International Conference of Software Testing (ICST) 2024
+%          \item Sub-reviewed for Michael W. Whalen on the technical track of Formal Methods in Computer-Aided Design (FMCAD) 2023
+%          \item Served on the Program Committee of the Industrial Innovation track at the 31st IEEE International Requirements Engineering (RE) 2023
+%          \item Served on the Program Committee of the Java Pathfinder (JPF) Workshop 2022, co-located with ASE 2022
+%          \item Served on the Program Committee of International Colloquium on Theoretical Aspects of Computing (ICTAC) 2022
+%          \item Served on the Program Committee of the Industry track at ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) 2022
+%          \item Sub-reviewed for Michael W. Whalen on the technical track of International Conference on Software Engineering (ICSE) 2022
+%          \item Served on the Program Committee of the New Ideas and Emerging Results (NIER) track at Automated Software Engineering (ASE) 2021
+%          \item Served on the Program Committee of the NIER track at the IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) 2021
+%          \item Served on the Program Committee of the Industry track at ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) 2021
+%          \item Reviewed for the Transactions of Software Engineering (TSE) journal
+%          \item Served on the Program Committee of the New Ideas and Emerging Results (NIER) track at Automated Software Engineering (ASE) 2020
+%          \item Served as Artifact Evaluation Committee member at the International Symposium of Software Testing and Analysis (ISSTA) 2020
+%          \item Served as Artifact Evaluation Committee member at Automated Software Engineering (ASE) 2020
+%          \item Served on the Program Committee for Binary Analysis Research Workshop 2020 (co-located with NDSS 2020)
+%          \item Served as Jury Member and Program Committee member of the International Competition of Software Verification (SV-COMP) 2020
+%          \item Reviewer for Journal of Software Testing, Verification and Reliability (STVR) (May 2019-Dec 2019)
+%          \item Contributed optimization features, bug fixes, system call support to FuzzBALL
+%          \item Supported development of an Android app for navigating the Michigan State University campus
+%        \end{itemize}
+%        
+%        
+%        
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \resheading{Awards}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        \vspace{-8pt}
+%        \begin{itemize}
+%          \item Doctoral Dissertation Fellowship, University of Minnesota, 2019
+%          \item Best Paper Runner-up Award, WiSec 2017
+%          \item NSF Conference Travel Grant, WiSec 2017
+%          \item ACM Conference Travel Grant, WiSec 2017
+%          \item Richard Reid Fellowship (College of Engineering, Michigan State University), Summer 2014
+%        \end{itemize}
+%        
+%        \vphantom{E}
+%        
+%        %\newpage
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        % \resheading{Industrial Projects}
+%        % \vspace{-8pt}
+%        % At IBM India, owned the scan optimization tool for ASICs:
+%        %
+%        % \begin{itemize}
+%        % \item
+%        % Developed a scan reordering tool for ASICS by implementing a combination of
+%        % K--opt heuristic and nearest neighbor algorithm to solve the Traveling
+%        % Salesman Problem
+%        % \item
+%        % Added enhancements to the optimization tool including: inter scan chain
+%        % reordering, routing--aware and clock topology--aware reordering
+%        % \item
+%        % Responsible for maintenance and integration of the tool
+%        % into the IBM backend physical design flow
+%        % \end{itemize}
+%        
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        %  \resheading{Academic Projects}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        %  \vspace{-8pt}
+%        %  \begin{itemize}
+%        %
+%        %  \item
+%        %  ``Increasing Symbolic PathFinder Performance with Bounded Static Symbolic Execution," Google Summer of Code, Summer 2017, UMN
+%        %
+%        %  \item
+%        %  ``Link Prefetching: A Defense Against Website Fingerprinting on Tor," Course project, Introduction to Computer Security, Fall 2015, UMN
+%        %
+%        %  \item
+%        %  ``Continuous User Authentication and Identification Using User Interface Interaction On Mobile Devices'', Master's Thesis, Summer 2015, MSU
+%        % \begin{itemize}
+%        % \item
+%        % Presented a new modality for authenticating users based on interactions with elements of the Android User Interface
+%        % \item
+%        % Evaluated the modality with data collected from real users and with different classification algorithms
+%        % \end{itemize}
+%        %
+%        %  \item
+%        %  ``Fraudulent Resume Detection," Course project, Data Mining, Fall 2014, MSU
+%        %
+%        %  \item
+%        %  ``Using GA-based Feature Selection In Ensemble Classifier For Network Intrusion Detection," Course Project, Evolutionary Computation, Fall 2014, MSU
+%        %
+%        %  \item
+%        %  ``NFC-Powered Wireless Multi-hop Sensor Network,'' Course Project, Advanced Computer Networks and Communication, Fall 2013, MSU
+%        %
+%        %  \item
+%        %  ``Optimal Placement of Annotation Labels in Geometric Objects,'' B.E. Thesis, 2007
+%        %  \end{itemize}
+%        
+%        %$\vspace{10.0pt}$
+%        
+%        %  \vspace{4.0pt}
+%        
+%        %  \resheading{Graduate Courses}
+%        %  \vspace{-8pt}
+%        %  \begin{itemize}
+%        %    \item Programming Languages
+%        %    \item Introduction to Compilers
+%        %    \item Security/Privacy in Computing
+%        %    \item Introduction to Computer Security
+%        %    \item Data Mining
+%        %    \item Pattern Recognition
+%        %  \end{itemize}
+%        
+%        
+%        
+%        %
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        %  \resheading{Skills}
+%        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        %  \vspace{-8pt}
+%        %  \begin{itemize}
+%        %
+%        %  \item
+%        %  \textit{Programming Languages}: C, C++, Java, OCaml
+%        %  \item
+%        %  \textit{Revision Control Systems}: Git
+%        %  \item
+%        %  \textit{Operating Systems}: various Linux flavors
+%        %  \end{itemize}
+%        %  \end{center}\vspace*{-16pt}
+%        
+%        
+%        \end{document}
+%        
